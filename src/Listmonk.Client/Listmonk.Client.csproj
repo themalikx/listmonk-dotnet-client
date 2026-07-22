@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard1.6;netstandard2.0;netstandard2.1;net45;net461;net462;net472;net48;net6.0;net8.0</TargetFrameworks>
+    <AssemblyName>Listmonk.Client</AssemblyName>
+    <RootNamespace>Listmonk.Client</RootNamespace>
+    <PackageId>Listmonk.Client</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Malik Qasim</Authors>
+    <Company>Malik Qasim</Company>
+    <Description>.NET client SDK for listmonk.</Description>
+    <PackageTags>listmonk;api;newsletter;email;sdk</PackageTags>
+    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/themalikx/listmonk-dotnet-client.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Shared\**\*.cs" LinkBase="Shared" Condition="Exists('..\..\Shared')" />
+  </ItemGroup>
+
+    <PropertyGroup>
+        <PackageIcon>icon.png</PackageIcon>
+    </PropertyGroup>
+
+<ItemGroup>
+  <None Include="icon.png" Pack="true" PackagePath="\" />
+</ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" Version="4.3.4" Condition=" '$(TargetFrameworkIdentifier)' == '.NETFramework' Or '$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.6'" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>
