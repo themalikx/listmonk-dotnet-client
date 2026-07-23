@@ -36,16 +36,10 @@ This library targets:
 
 ## Install
 
-After publishing to NuGet.org, install the package with the NuGet CLI:
+After publishing to NuGet.org:
 
-```powershell
-nuget install Listmonk.Client -Version 1.0.0 -Source https://api.nuget.org/v3/index.json
-```
-
-For local testing from a folder feed:
-
-```powershell
-nuget install Listmonk.Client -Version 1.0.0 -Source "D:\extra\nuget_packages\listmonk\src\Listmonk.Client\bin\Release"
+```bash
+dotnet add package Listmonk.Client
 ```
 
 ## Authentication
