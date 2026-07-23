@@ -16,6 +16,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag is on main
+        run: |
+          git fetch origin main --depth=1
+          if ! git branch -r --contains "$GITHUB_SHA" | grep -q "origin/main"; then
+            echo "This release workflow only publishes commits that are already on main."
+            exit 1
+          fi
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
